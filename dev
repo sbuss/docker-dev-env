@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PWD=`pwd | sed "s/$USER/dev/g" | sed 's/\/Users/\/home/'`
+CMD=${@:-bash}
+docker run -t -i \
+    -v $HOME/workspace:/home/dev/workspace \
+    -v $HOME/.ssh:/home/dev/.ssh \
+    -v $HOME/.git-completion.bash:/home/.git-completion.bash \
+    dev bash -c "cd $PWD; exec $CMD"
