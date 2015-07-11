@@ -6,9 +6,10 @@ RUN apt-get update && \
         python python-dev python-pip \
         git bash-completion
 
-RUN adduser --disabled-password --gecos '' dev
-RUN adduser dev sudo
-RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN adduser --disabled-password --gecos '' dev; \
+    adduser dev sudo; \
+    echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers; \
+    passwd -d dev
 
 USER dev
 WORKDIR /home/dev
