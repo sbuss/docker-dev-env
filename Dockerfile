@@ -19,5 +19,5 @@ RUN git config --global user.name "Steven Buss"
 ADD python-requirements.txt /home/dev/
 RUN sudo pip install -r python-requirements.txt
 
-RUN git clone https://github.com/sbuss/dotfiles.git
-RUN cd dotfiles && git checkout more-auto && ./setup.sh
+ADD dotfiles /home/dev/dotfiles
+RUN cd dotfiles && ./setup.sh
