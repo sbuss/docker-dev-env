@@ -8,4 +8,5 @@ build: dotfiles
 	docker build -t dev .
 
 install: build
+	rm -f /usr/local/bin/dev
 	ln -s `pwd`/dev /usr/local/bin/dev
