@@ -2,7 +2,7 @@
 
 PWD=`pwd | sed "s/$USER/dev/g" | sed 's/\/Users/\/home/'`
 CMD=${@:-bash}
-docker run -t -i \
+docker run -it \
     -v $HOME/workspace:/home/dev/workspace \
     -v $HOME/.ssh:/home/dev/.ssh \
     dev bash -c "cd $PWD; exec $CMD"
