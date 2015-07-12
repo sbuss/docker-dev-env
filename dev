@@ -5,4 +5,7 @@ CMD=${@:-bash}
 docker run -it \
     -v $HOME/workspace:/home/dev/workspace \
     -v $HOME/.ssh:/home/dev/.ssh \
-    dev bash -c "cd $PWD; exec $CMD"
+    -v /var/run/screen \
+    dev sh -c "exec >/dev/tty 2>/dev/tty </dev/tty && cd $PWD && exec $CMD"
+# This exec tty stuff is so screen will run in the container.
+# See https://github.com/docker/docker/issues/728

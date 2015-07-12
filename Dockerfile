@@ -4,7 +4,8 @@ RUN apt-get update && \
     apt-get install -y \
         vim \
         python python-dev python-pip \
-        git bash-completion
+        git bash-completion \
+        screen
 
 RUN adduser --disabled-password --gecos '' dev; \
     adduser dev sudo; \
