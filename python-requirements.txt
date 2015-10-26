@@ -1,3 +1,4 @@
+virtualenv
 ipython
 ipdb
 flake8
